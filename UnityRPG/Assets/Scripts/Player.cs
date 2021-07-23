@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,7 @@ public class Player : MonoBehaviour
     public int maxHp;
 
     [Header("Movement")]
+    private float jumpForce = 5.0f;
     private float moveSpeed = 4.0f;
 
     //[Header("Camera")]
@@ -35,6 +37,10 @@ public class Player : MonoBehaviour
     void Update()
     {
         Move();
+
+        // jump
+        if (Input.GetButtonDown("Jump"))
+            TryJump();
     }
 
     void Move()
@@ -48,5 +54,14 @@ public class Player : MonoBehaviour
 
         // apply velocity
         rig.velocity = dir;
+    }
+
+    void TryJump()
+    {
+        Ray ray = new Ray(transform.position, Vector3.down);
+        if (Physics.Raycast(ray, 1.1f))
+        {
+            rig.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
     }
 }
