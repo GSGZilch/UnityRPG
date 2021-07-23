@@ -8,23 +8,28 @@ public class Player : MonoBehaviour
     
     //[Header("Body")]
     private Rigidbody rig;
+    private Transform trans;
 
     [Header("Stats")]
     public int curHp;
     public int maxHp;
 
     [Header("Movement")]
-    private float jumpForce = 5.0f;
-    private float moveSpeed = 4.0f;
+    public float jumpForce;
+    public float rotateSpeed;
+    public float moveSpeed;
 
     //[Header("Camera")]
     private Camera cam;
+
+    private bool qwerty = true;
 
     void Awake()
     {
         // Get components
         cam = Camera.main;
         rig = GetComponent<Rigidbody>();
+        trans = GetComponent<Transform>();
     }
 
         // Start is called before the first frame update
@@ -36,11 +41,22 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Rotate();
         Move();
 
         // jump
         if (Input.GetButtonDown("Jump"))
             TryJump();
+    }
+
+    void Rotate()
+    {
+        if (Input.GetKey("e"))
+            trans.Rotate(0.0f, rotateSpeed, 0.0f, Space.Self);
+        if (qwerty) {
+            if (Input.GetKey("q"))
+                trans.Rotate(0.0f, -rotateSpeed, 0.0f, Space.Self);
+        }
     }
 
     void Move()
