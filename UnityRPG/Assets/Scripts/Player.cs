@@ -56,6 +56,10 @@ public class Player : MonoBehaviour
         if (qwerty) {
             if (Input.GetKey("q"))
                 trans.Rotate(0.0f, -rotateSpeed, 0.0f, Space.Self);
+        } else
+        {
+            if (Input.GetKey("a"))
+                trans.Rotate(0.0f, -rotateSpeed, 0.0f, Space.Self);
         }
     }
 
