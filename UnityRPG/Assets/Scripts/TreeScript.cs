@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tree : MonoBehaviour
+public class TreeScript : MonoBehaviour
 {
     public bool isChopped = false;
     public GameObject log;
