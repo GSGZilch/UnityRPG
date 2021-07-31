@@ -105,9 +105,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3039817355315524428}
-  - component: {fileID: 3039817355315524418}
-  - component: {fileID: 3039817355315524419}
   - component: {fileID: 5415652357872715865}
+  - component: {fileID: -5056361333970009598}
+  - component: {fileID: 3441314137383360384}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -135,39 +135,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &3039817355315524418
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3039817355315524429}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 80
-  m_CollisionDetection: 0
---- !u!114 &3039817355315524419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3039817355315524429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71233eb65d1053447aa510cf6706b82f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  curHp: 0
-  maxHp: 0
-  jumpForce: 4
-  rotateSpeed: 0.3
-  moveSpeed: 5
 --- !u!136 &5415652357872715865
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -182,6 +149,44 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!143 &-5056361333970009598
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039817355315524429}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3441314137383360384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039817355315524429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15948005ea4514b12ac68260e0e3142a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: -5056361333970009598}
+  cam: {fileID: 0}
+  curHp: 0
+  maxHp: 0
+  jumpForce: 0
+  rotateSpeed: 0
+  moveSpeed: 5
+  turnSmoothTime: 0.1
 --- !u!1 &3226623441981754406
 GameObject:
   m_ObjectHideFlags: 0
